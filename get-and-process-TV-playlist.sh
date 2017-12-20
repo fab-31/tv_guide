@@ -33,36 +33,50 @@ dos2unix -q ${WORKING_FILE}
 
 echo "filter"
 #Suppression des chaines
+
+	#chaines arabes
 	sed -i '/AR./,+1d'         				        	${WORKING_FILE}
+	
+	#chaines europeenes
 	sed -i '/|IT|/,+1d'        		    	        	${WORKING_FILE}
 	sed -i '/#EXTINF:-1,IT|/,+1d'          	        	${WORKING_FILE}
 	sed -i '/|PT|/,+1d'          					 	${WORKING_FILE}
 	sed -i '/#EXTINF:-1,PT|/,+1d'          		 		${WORKING_FILE}
 	sed -i '/|BE|/,+1d'         						${WORKING_FILE}
 	sed -i '/|ES|/,+1d'         						${WORKING_FILE}
+	sed -i '/|SUI|/,+1d'          						${WORKING_FILE}	
+	
+	#titre  
 	sed -i '/-----------/,+1d'  						${WORKING_FILE}
-	sed -i '/|SUI|/,+1d'          						${WORKING_FILE}
+	
+	#chaines adultes
 	sed -i '/xXx/,+1d'          						${WORKING_FILE}
+	
+	#chaines enfants
 	sed -i '/TOONAMI/,+1d'      						${WORKING_FILE}
 	sed -i '/CARTOON/,+1d'      						${WORKING_FILE}
 	sed -i '/TELETOON/,+1d'      						${WORKING_FILE}
 	sed -i '/ZOUZOU/,+1d'       						${WORKING_FILE}
-	sed -i '/golf/,+1d'          						${WORKING_FILE}
 	sed -i '/NICKELODEON/,+1d'      					${WORKING_FILE}
 	sed -i '/DISNEY/,+1d'      					 		${WORKING_FILE}
 	sed -i '/PIWI/,+1d'      						 	${WORKING_FILE}
-	sed -i '/golf/,+1d'      						 	${WORKING_FILE}
 	sed -i '/BOOMERANG/,+1d'     					 	${WORKING_FILE}
 	sed -i '/BOING/,+1d'      						 	${WORKING_FILE}
 	sed -i '/TIJI/,+1d'      						 	${WORKING_FILE}
 	sed -i '/GULLI/,+1d'      						 	${WORKING_FILE}
-	sed -i '/WEO/,+1d'      						 	${WORKING_FILE}
 	sed -i '/CANAL J/,+1d'     					 		${WORKING_FILE}
-	sed -i '/FHD$/,+1d'         					 	${WORKING_FILE}
+	sed -i '/WEO/,+1d'      						 	${WORKING_FILE}
+	
+	#Sports
+	sed -i '/golf/,+1d'      						 	${WORKING_FILE}
 	sed -i '/BEIN /,+1d'         					 	${WORKING_FILE}
 	sed -i '/SFR /,+1d'         					 	${WORKING_FILE}
 	sed -i '/FOOT+ /,+1d'         					 	${WORKING_FILE}
 	sed -i '/EQUIDIA/,+1d'         				 		${WORKING_FILE}
+	
+	#Chaines haute qualité
+	sed -i '/FHD$/,+1d'         					 	${WORKING_FILE}
+	
 	sed -i '/^#EXTINF:-1,|FR| CANAL+  HD$/,+1d'     	${WORKING_FILE}
 	sed -i '/^#EXTINF:-1,FR| CANAL+ CINEMA$/,+1d'   	${WORKING_FILE}
 	sed -i '/^#EXTINF:-1,|FR| CANAL+ SERIE$/,+1d'   	${WORKING_FILE}
@@ -74,6 +88,15 @@ echo "filter"
 	sed -i 's/FRANCE/France/' 							${WORKING_FILE}
 	sed -i 's/CANAL/Canal/' 							${WORKING_FILE}
 	sed -i 's/^#EXTINF:-1,|FR| /#EXTINF:-1,/' 	   	    ${WORKING_FILE}
+	
+	#Suppression des chaines de musique
+	sed -i '/TRACE/,+1d'         					 	${WORKING_FILE}
+	sed -i '/DJAZZ TV/,+1d'         					${WORKING_FILE}
+	sed -i '/BRAVA/,+1d'         					${WORKING_FILE}
+	sed -i '/MEZZO/,+1d'         					${WORKING_FILE}
+	
+	#For the tvguide
+	sed -i 's/NUMERO 23/Numéro 23/' 	   	    ${WORKING_FILE}
 	
 #ajout des logos	
 cat ${WORKING_FILE}|while read line

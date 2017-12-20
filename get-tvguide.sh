@@ -31,8 +31,11 @@ fi
 unzip tvguide.zip
 
 sed -i '/id="TF12.kazer.org"/,+2d'   			${WORKING}
-sed -i 's=France Ô=FRANCE O=g' 		 			${WORKING}
+sed -i 's=France Ô=France O=g' 		 			${WORKING}
 sed -i 's=TF12.kazer.org=TF11.kazer.org=g' 		${WORKING}
+sed -i 's=NT 1=NT1=g' 					    	${WORKING}
+
+
 
 #Final copy
 mv ${WORKING} ${TVGUIDE}
