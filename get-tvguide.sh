@@ -15,7 +15,8 @@ WORKING="tvguide.xml"
 # === Main ===
 
 #load secret
-secret=$(cat secret.env)
+FOLDER_SECRET="$(dirname $0)"
+secret=$(cat ${FOLDER_SECRET}/secret.env)
 eval "$secret"
 
 mkdir ${TMP_FOLDER}; cd ${TMP_FOLDER}

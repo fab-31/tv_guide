@@ -12,19 +12,20 @@
 # === Temporary tvguide file ===
 TMP_FOLDER="/tmp/tvguide.$$"
 WORKING_FILE="TV.m3u"
-WORKING_FILELOGO="TV_with-logo.m3u"
+WORKING_FILELOGO="${TMP_FOLDER}/TV_with-logo.m3u"
 
 # === Functions ===
 
 # === Main ===
 
 #load secret
-secret=$(cat secret.env)
+FOLDER_SECRET="$(dirname $0)"
+secret=$(cat ${FOLDER_SECRET}/secret.env)
 eval "$secret"
 
 #create tempary
 mkdir ${TMP_FOLDER}; cd ${TMP_FOLDER}
-
+> ${WORKING_FILELOGO}
 
 echo "Get TV List"
 wget -q "${URL_RAW_PLAYLIST_TV}" -O ${WORKING_FILE}
